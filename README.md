@@ -89,5 +89,5 @@
 ## 👨‍💻 Author
 
 **[Your Name / ชื่อของคุณ]**
-* GitHub: [YourProfile](https://github.com/yourusername)
-* Email: your.email@example.com
+* GitHub: [YourProfile]([https://github.com/yourusername](https://github.com/BOXiandMaxi))
+* Email: keattisaksari@gmail.com
