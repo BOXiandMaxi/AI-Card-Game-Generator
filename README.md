@@ -82,7 +82,7 @@
 *(Place your screenshots here / ใส่รูปตัวอย่างโปรเจคตรงนี้)*
 | Gacha Opening | 3D Card Viewer | Deck Gallery |
 |:---:|:---:|:---:|
-| ![Open Pack](screenshots/cark_back.png) | ![3D View](screenshots/card.png) | ![Deck](screenshots/deck.png) |
+| ![Open Pack](screenshots/card_back.png) | ![3D View](screenshots/card.png) | ![Deck](screenshots/deck.jpg) |
 
 ---
 
