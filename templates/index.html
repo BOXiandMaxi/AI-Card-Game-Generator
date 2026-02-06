@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Pack Opening - AI Game</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    
+    <div class="device-switch-wrapper">
+        <span class="switch-label">AI ENGINE:</span>
+        <div class="switch-toggle">
+            <input type="checkbox" id="gpuToggle"> 
+            <label for="gpuToggle">
+                <span class="status-text cpu">CPU</span>
+                <span class="status-text gpu">GPU</span>
+            </label>
+        </div>
+    </div>
+
+    <a href="http://localhost:8501" target="_blank" class="btn-view-deck">
+        🎴 VIEW MY DECK
+    </a>
+
+    <div class="stars"></div>
+    <div class="stars-2"></div>
+
+    <div class="container">
+        <header class="header">
+            <h1 class="title">
+                <span class="title-main">CARD PACK</span>
+                <span class="title-sub">OPENING SYSTEM</span>
+            </h1>
+            <div class="title-glow"></div>
+        </header>
+
+        <section class="pack-selection">
+            <div class="selection-header">
+                <h2>SELECT YOUR PACK</h2>
+                <div class="header-line"></div>
+            </div>
+            
+            <div class="pack-grid">
+                <div class="pack-card bronze" data-pack="bronze">
+                    <div class="pack-icon">⬡</div>
+                    <h3>BRONZE</h3>
+                    <div class="pack-rarity">COMMON</div>
+                </div>
+                <div class="pack-card silver" data-pack="silver">
+                    <div class="pack-icon">◈</div>
+                    <h3>SILVER</h3>
+                    <div class="pack-rarity">RARE</div>
+                </div>
+                <div class="pack-card gold" data-pack="gold">
+                    <div class="pack-icon">◆</div>
+                    <h3>GOLD</h3>
+                    <div class="pack-rarity">EPIC</div>
+                </div>
+                <div class="pack-card diamond" data-pack="diamond">
+                    <div class="pack-icon">✦</div>
+                    <h3>DIAMOND</h3>
+                    <div class="pack-rarity">LEGENDARY</div>
+                </div>
+                <div class="pack-card random" data-pack="random">
+                    <div class="pack-icon">?</div>
+                    <h3>RANDOM</h3>
+                    <div class="pack-rarity">MYSTERY</div>
+                </div>
+            </div>
+
+            <button id="openPackBtn" class="btn-primary" disabled>
+                <span>OPEN PACK</span>
+                <div class="btn-glow"></div>
+            </button>
+        </section>
+
+        <section id="classSelection" class="class-selection hidden">
+            <div class="selection-header">
+                <h2>CUSTOMIZE YOUR CARD</h2>
+                <div class="header-line"></div>
+            </div>
+
+            <div class="selection-grid">
+                <div class="select-group">
+                    <label>CLASS TYPE</label>
+                    <div class="select-wrapper">
+                        <select id="classSelect">
+                            <option value="">-- Select Class --</option>
+                        </select>
+                        <div class="select-arrow">▼</div>
+                    </div>
+                </div>
+
+                <div class="select-group">
+                    <label>WEAPON TYPE</label>
+                    <div class="select-wrapper">
+                        <select id="weaponSelect">
+                            <option value="">-- Select Weapon --</option>
+                        </select>
+                        <div class="select-arrow">▼</div>
+                    </div>
+                </div>
+            </div>
+
+            <button id="confirmBtn" class="btn-primary">
+                <span>CONFIRM SELECTION</span>
+                <div class="btn-glow"></div>
+            </button>
+        </section>
+
+        <section id="resultContainer" class="hidden">
+            <div class="selection-header">
+                <h2 class="result-title">
+                    <span id="resultPack"></span> PACK
+                </h2>
+                <div class="header-line"></div>
+            </div>
+
+            <div class="card-scene">
+                <div class="card-object" id="flipCard">
+                    <div class="card-face face-front">
+                        <img id="cardImage" src="" alt="Generated Card">
+                        <div class="god-aura hidden" id="godAura"></div>
+                    </div>
+                    <div class="card-face face-back">
+                        <img src="{{ url_for('static', filename='card_back/card_back.png') }}" alt="Card Back">
+                    </div>
+                </div>
+            </div>
+
+            <div id="cardStats" class="result-grid hidden">
+                <div class="stat-card">
+                    <div class="stat-label">CLASS</div>
+                    <div class="stat-value" id="resultClass">--</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">WEAPON</div>
+                    <div class="stat-value" id="resultWeapon">--</div>
+                </div>
+                <div class="stat-card power">
+                    <div class="stat-label">POWER</div>
+                    <div class="stat-value power-text" id="resultPower">--</div>
+                </div>
+            </div>
+            
+            <div class="mt-8 hidden" id="resetButtonContainer">
+                <button onclick="location.reload()" class="btn-primary">
+                    <span>OPEN NEW PACK</span>
+                    <div class="btn-glow"></div>
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="spinner-container">
+            <div class="spinner-ring"></div>
+            <div class="spinner-core"></div>
+        </div>
+        <div class="loading-text" id="loadingText">SUMMONING HERO...</div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

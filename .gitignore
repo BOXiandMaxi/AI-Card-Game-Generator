@@ -1,0 +1,10 @@
+
+
+# ไม่เอาไฟล์โปรแกรม
+*.exe
+ngrok.exe
+
+# ไม่เอาไฟล์ Environment (ถ้ามี)
+venv/
+env/
+.env
