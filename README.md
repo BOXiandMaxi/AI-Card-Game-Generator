@@ -89,5 +89,5 @@
 ## 👨‍💻 Author
 
 **[Your Name / ชื่อของคุณ]**
-* GitHub: [YourProfile]((https://github.com/BOXiandMaxi))
+* GitHub: https://github.com/BOXiandMaxi
 * Email: keattisaksari@gmail.com
