@@ -88,6 +88,6 @@
 
 ## 👨‍💻 Author
 
-**[Your Name / ชื่อของคุณ]**
+**[Contact / ติดต่อ]**
 * GitHub: https://github.com/BOXiandMaxi
 * Email: keattisaksari@gmail.com
